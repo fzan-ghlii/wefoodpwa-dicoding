@@ -258,12 +258,13 @@ nav a:hover {
 
 .skip-link {
     position: absolute;
-    top: -40px;
-    left: 0;
-    background-color: #66DE93;
+    top: -9999px; /* Hide it initially */
+    z-index: 9999; /* Ensure it's visible above everything else */
+    padding: 10px;
+    background-color: #333;
     color: white;
-    padding: 8px;
-    z-index: 100;
+    text-decoration: none;
+    transition: top 0.3s ease-in-out;
 }
 
 .skip-link:focus {
