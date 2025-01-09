@@ -54,7 +54,27 @@
         "sizes": "512x349",
         "type": "image/png",
         "purpose": "any"
+      },
+      {
+        "src": "/icons/icon760.png",
+        "sizes": "760x760",
+        "type": "image/png",
+        "purpose": "any"
       }
+    ],
+    "screenshots": [
+    {
+      "src": "/icons/icon1280.png",
+      "sizes": "1210x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/icons/iconarow.png",
+      "sizes": "740x685",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
     ]
   }
   
