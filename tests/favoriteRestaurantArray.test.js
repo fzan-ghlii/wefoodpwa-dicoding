@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import { itActsAsFavoriteRestaurantModel } from './contracts/favoriteRestaurantContract';
+import { afterEach, describe } from '@jest/globals';
 
 global.structuredClone =
   global.structuredClone ||
@@ -38,6 +39,19 @@ const FavoriteRestaurantArray = {
     // cara boros menghapus film dengan meng-copy film yang ada
     // kecuali film dengan id == id
     favoriteRestaurants = favoriteRestaurants.filter((restaurant) => restaurant.id != id);
+  },
+
+  searchRestaurants(query) {
+    return this.getAllRestaurant()
+      .filter((restaurant) => {
+        const loweredCaseRestaurantTitle = (restaurant.title || '-').toLowerCase();
+        const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(/\s/g, '');
+
+        const loweredCaseQuery = query.toLowerCase();
+        const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
+
+        return jammedRestaurantTitle.indexOf(jammedQuery) != -1;
+      });
   },
 };
 
