@@ -1,4 +1,5 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-trailing-spaces */
+ 
 import { createRestaurantItemTemplate } from '../../templates/template-creator';
 
 class FavoriteRestaurantSearchView {
