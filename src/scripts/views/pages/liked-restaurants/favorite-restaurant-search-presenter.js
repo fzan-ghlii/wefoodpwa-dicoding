@@ -1,3 +1,8 @@
+/* eslint-disable no-unused-vars */
+const _showFoundRestaurants = (restaurants) => {
+  this._view.showRestaurants(restaurants);
+};
+
 class FavoriteRestaurantSearchPresenter {
   constructor({ favoriteRestaurants, view }) {
     this._favoriteRestaurants = favoriteRestaurants;
@@ -13,13 +18,15 @@ class FavoriteRestaurantSearchPresenter {
 
   async _searchRestaurants(latestQuery) {
     this._latestQuery = latestQuery.trim();
+
     let foundRestaurants;
     if (this.latestQuery.length > 0) {
       foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latestQuery);
     } else {
       foundRestaurants = await this._favoriteRestaurants.getAllRestaurants();
     }
-    this._showFoundRestaurants(foundRestaurants);
+
+    this._showFoundRestaurants(foundRestaurants,);
   }
 
   _showFoundRestaurants(restaurants) {

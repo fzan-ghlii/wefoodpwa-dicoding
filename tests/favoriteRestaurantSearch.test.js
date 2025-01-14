@@ -52,51 +52,6 @@ describe('Searching restaurants', () => {
       expect(favoriteRestaurants.searchRestaurants).toHaveBeenCalledWith('resto a');
     });
 
-    it('should show the found restaurants', () => {
-      presenter._showFoundRestaurants([{ id: 1 }]);
-      expect(document.querySelectorAll('.restaurant').length).toEqual(1);
-      presenter._showFoundRestaurants([
-        {
-          id: 1,
-          title: 'Satu',
-        },
-        {
-          id: 2,
-          title: 'Dua',
-        },
-      ]);
-      expect(document.querySelectorAll('.restaurant').length).toEqual(2);
-    });
-
-    it('should show the title of the found restaurants', () => {
-      presenter._showFoundRestaurants([
-        {
-          id: 1,
-          title: 'Satu',
-        },
-      ]);
-      expect(document.querySelectorAll('.restaurant__title').item(0).textContent).toEqual('Satu');
-
-      presenter._showFoundRestaurants([
-        {
-          id: 1,
-          title: 'Satu',
-        },
-        {
-          id: 2,
-          title: 'Dua',
-        },
-      ]);
-      const restaurantTitles = document.querySelectorAll('.restaurant__title');
-      expect(restaurantTitles.item(0).textContent).toEqual('Satu');
-      expect(restaurantTitles.item(1).textContent).toEqual('Dua');
-    });
-
-    it('should show - for found restaurant without title', () => {
-      presenter._showFoundRestaurants([{ id: 1 }]);
-      expect(document.querySelectorAll('.restaurant__title').item(0).textContent).toEqual('-');
-    });
-
     it('should show the restaurants found by Favorite Restaurants', (done) => {
       document
         .getElementById('restaurant-search-container')
@@ -136,6 +91,27 @@ describe('Searching restaurants', () => {
             { id: 333, title: 'ini juga boleh resto a' },
           ];
         }
+        return [];
+      });
+
+      searchRestaurants('resto a');
+    });
+
+    it('should show - when the restaurant returned does not contain a title', (done) => {
+      document.getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          const restaurantTitles = document.querySelectorAll('.restaurant__title');
+          expect(restaurantTitles.item(0).textContent)
+            .toEqual('-');
+
+          done();
+        });
+
+      favoriteRestaurants.searchRestaurants.mockImplementation((query) => {
+        if (query === 'resto a') {
+          return [{ id: 444 }];
+        }
+
         return [];
       });
 
@@ -184,7 +160,7 @@ describe('Searching restaurants', () => {
           done();
         });
       favoriteRestaurants.searchRestaurants.mockImplementation((query) => []);
-      searchRestaurants('film a');
+      searchRestaurants('resto a');
     });
   });
 });
