@@ -17,7 +17,7 @@ const FavoriteRestaurantIdb = {
     }
     return (await dbPromise).get(OBJECT_STORE_NAME, id);
   },
-  async getAllRestaurant() {
+  async getAllRestaurants() {
     return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
   async putRestaurant(restaurant) {
@@ -31,7 +31,7 @@ const FavoriteRestaurantIdb = {
   },
 
   async searchRestaurants(query) {
-    return (await this.getAllRestaurant()).filter((restaurant) => {
+    return (await this.getAllRestaurants()).filter((restaurant) => {
       const loweredCaseRestaurantTitle = (restaurant.title || '-').toLowerCase();
       const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(/\s/g, '');
 

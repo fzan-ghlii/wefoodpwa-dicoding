@@ -44,13 +44,13 @@ describe('Liking A Restaurant', () => {
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
 
     // Tidak ada film yang ganda
-    expect(await FavoriteRestaurantIdb.getAllRestaurant()).toEqual([{ id: 1 }]);
+    expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([{ id: 1 }]);
     await FavoriteRestaurantIdb.deleteRestaurant(1);
   });
 
   it('should not add a restaurant when it has no id', async () => {
     await TestFactories.createLikeButtonPresenterWithRestaurant({});
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
-    expect(await FavoriteRestaurantIdb.getAllRestaurant()).toEqual([]);
+    expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([]);
   });
 });
