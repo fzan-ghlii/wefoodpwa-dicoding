@@ -300,8 +300,9 @@ input[type=submit] {
 
 .btn-ghost:link,
 .btn-ghost:visited {
-    border: 1px solid #FFD65A;
-    color: #FFD65A;
+    border: 1px solid #000000;
+    color: #000000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     margin-top: 20px;
 }
@@ -323,7 +324,7 @@ input[type=submit]:active {
 .btn-ghost:hover,
 .btn-ghost:active {
     border: 1px solid #FF9D23;
-    color: #fff;
+    color: #000000;
     transition: all 0.2s;
 }
 
