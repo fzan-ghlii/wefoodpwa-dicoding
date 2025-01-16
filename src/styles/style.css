@@ -8,6 +8,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+}
+
+.hero picture img {
+    width: 100vw;
+    height: 60vh; /* Konsisten dengan tinggi elemen hero */
+    object-fit: cover;
+    object-position: center;
 }
 
 html,
@@ -90,10 +98,20 @@ nav a:hover {
 .hero-text-box {
     position: absolute;
     width: 80%;
-    top: 35%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #f7fff7;
+}
+
+.hero-text-box h1 {
+    margin-bottom: 20px; /* Jarak antara judul dan tombol */
+    font-size: 2rem; /* Sesuaikan ukuran teks untuk responsivitas */
+}
+
+.hero-text-box a {
+    display: inline-block;
+    margin: 10px; /* Tambahkan jarak antar tombol */
 }
 
 .logo-image {

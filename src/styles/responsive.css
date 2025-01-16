@@ -121,6 +121,22 @@
         position: relative;
         transform: translate(0, 0);
     }
+    .hero-text-box {
+        top: 25%; /* Sesuaikan posisi pada layar kecil */
+        width: 90%;
+    }
+
+    .hero-text-box h1 {
+        font-size: 1.5rem; /* Ukuran font lebih kecil */
+    }
+
+    .hero-text-box a {
+        font-size: 1rem; /* Sesuaikan ukuran tombol */
+    }
+
+    .hero picture img {
+        height: 40vh; /* Kurangi tinggi gambar */
+    }
 }
 
 @media screen and (min-width: 650px) {
